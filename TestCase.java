@@ -2,12 +2,17 @@
 class TestCase {
     private int longitud;
     private int busqueda;
-    private boolean existe;
+    private int[] lista;
+    private int pos;
 
-    public TestCase(int l, int b, boolean e) {
+    public TestCase() {
+    }
+
+    public TestCase(int l, int b, int[] lista, int pos) {
         this.longitud = l;
         this.busqueda = b;
-        this.existe = e;
+        this.lista = lista;
+        this.pos = pos;
     }
 
     public int getLongitud() {
@@ -18,12 +23,39 @@ class TestCase {
         return busqueda;
     }
 
-    public boolean getExiste() {
-        return existe;
+    public int[] getLista() {
+        return lista;
+    }
+
+    public int getPos() {
+        return pos;
+    }
+
+    public void setPos(int p) {
+        this.pos = p;
     }
 
     @Override
     public String toString() {
-        return "Longitud: " + longitud + ", Busqueda: " + busqueda + ",  Existe: " + existe;
+        if (this.pos == -1) {
+            return "el elemento no se encuentra en el listado";
+        } else {
+            return "El numero " + busqueda + " se encuentra en la posicion " + pos + " del listado de longitud "
+                    + longitud
+                    + " \n  arreglo: " + arrayToString();
+        }
+    }
+
+    public String arrayToString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        for (int i = 0; i < this.lista.length; i++) {
+            sb.append(this.lista[i]);
+            if (i < this.lista.length - 1) {
+                sb.append(", ");
+            }
+        }
+        sb.append("]");
+        return sb.toString();
     }
 }
