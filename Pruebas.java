@@ -6,21 +6,19 @@ public class Pruebas {
     public static List<TestCase> generarCasosPrueba() {
         List<TestCase> casosPruebas = new ArrayList<>();
 
-        int totalCases = 100;
-
         // Generar la mitad de los casos con tamano par y la otra mitad con tamaño impar
         int casosPar = 50;
         int casosImpar = 50;
 
         for (int i = 0; i < casosPar; i++) {
-            int size = getRandomNumber(2, 100); // Tamaño par
+            int size = getRandomNumber(2, 100); // Tamano par
             int targetIndex = getRandomNumber(0, size - 1);
             boolean targetPresent = getRandomBoolean();
             casosPruebas.add(new TestCase(size, targetIndex, targetPresent));
         }
 
         for (int i = 0; i < casosImpar; i++) {
-            int size = getRandomNumber(1, 99); // Tamaño impar
+            int size = getRandomNumber(1, 99); // Tamano impar
             int targetIndex = getRandomNumber(0, size - 1);
             boolean targetPresent = getRandomBoolean();
             casosPruebas.add(new TestCase(size, targetIndex, targetPresent));
@@ -46,6 +44,7 @@ public class Pruebas {
 
     public static void main(String[] args) {
         List<TestCase> testCases = generarCasosPrueba();
+        System.out.println("El total de pruebas son " + testCases.size());
         for (TestCase testCase : testCases) {
             System.out.println(testCase);
         }
