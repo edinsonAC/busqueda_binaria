@@ -70,7 +70,6 @@ public class Pruebas {
     public static int[] generarListado(int size, boolean order) {
         int[] array = new int[size];
         List<Integer> numbers = new ArrayList<>();
-
         for (int i = 0; i < size; i++) {
             numbers.add(i);
         }
@@ -81,7 +80,6 @@ public class Pruebas {
         for (int i = 0; i < size; i++) {
             array[i] = numbers.get(i);
         }
-
         return array;
     }
 
